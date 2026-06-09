@@ -71,7 +71,7 @@ Follow the steps below carefully.
 ## Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/yt-spotify-sync.git
+git clone https://github.com/S0UMY4J1T/Spotify-Youtube-Play-Pause
 cd yt-spotify-sync
 ```
 
@@ -259,9 +259,8 @@ If you find a bug or have a feature request, please open an issue.
 
 ### Soumyajit Samanta
 
-* GitHub: https://github.com/YOUR_GITHUB_USERNAME
-* LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN_USERNAME
-* Portfolio: https://YOUR_PORTFOLIO_URL
+* GitHub: https://github.com/S0UMY4J1T
+* LinkedIn: www.linkedin.com/in/soumyajit-samanta
 
 ---
 
