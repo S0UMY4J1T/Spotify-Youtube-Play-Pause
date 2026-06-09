@@ -1,13 +1,32 @@
 # 🎵 YouTube ↔ Spotify Auto Sync (macOS)
 
 Automatically pause Spotify when a YouTube video starts playing and resume Spotify when the video is paused.
+Youtube Video at Browser and Spotify Application is there on the System .
 
-Unlike most media-control scripts, this project remembers Spotify's previous state:
+---
 
-* ✅ If Spotify was already playing, it will resume after you pause YouTube.
-* ✅ If Spotify was not playing, it will stay stopped.
-* ✅ Works with Brave, Chrome, Edge, and other Chromium-based browsers.
-* ✅ Lightweight and easy to set up.
+## 🛠 Requirements
+
+Before starting, make sure you have:
+
+* macOS
+* Spotify Desktop Application
+* Python 3
+* Brave / Chrome / Edge Browser
+* Tampermonkey Extension
+
+---
+
+# 📂 Project Structure
+
+```text
+yt-spotify-sync/
+│
+├── spotify_control.py
+├── Tampermonkey script
+├── README.md
+└── LICENSE
+```
 
 ---
 
@@ -40,18 +59,6 @@ Pause YouTube Video
       ↓
 Spotify Remains Stopped
 ```
-
----
-
-## 🛠 Requirements
-
-Before starting, make sure you have:
-
-* macOS
-* Spotify Desktop Application
-* Python 3
-* Brave / Chrome / Edge Browser
-* Tampermonkey Extension
 
 ---
 
@@ -94,40 +101,7 @@ After installation:
 
 ## Step 3: Add the Userscript
 
-Delete everything inside the editor and paste:
-
-```javascript
-// ==UserScript==
-// @name         YouTube Spotify Sync
-// @namespace    https://github.com/YOUR_USERNAME
-// @version      1.0
-// @description  Pause Spotify when YouTube plays and resume when paused
-// @match        https://www.youtube.com/*
-// @grant        none
-// ==/UserScript==
-
-(function() {
-    console.log("YOUTUBE SCRIPT LOADED");
-
-    const interval = setInterval(() => {
-        const video = document.querySelector("video");
-
-        if (video) {
-            console.log("VIDEO FOUND");
-
-            video.addEventListener("play", () => {
-                fetch("http://localhost:8765/pause");
-            });
-
-            video.addEventListener("pause", () => {
-                fetch("http://localhost:8765/play");
-            });
-
-            clearInterval(interval);
-        }
-    }, 1000);
-})();
-```
+Delete everything inside the editor and paste the tampermonkey script.
 
 Save the script using:
 
@@ -270,28 +244,6 @@ Listening on port 8765...
 ```
 
 appears.
-
----
-
-# 📂 Project Structure
-
-```text
-yt-spotify-sync/
-│
-├── spotify_control.py
-├── README.md
-└── LICENSE
-```
-
----
-
-# 🔮 Future Improvements
-
-* [ ] Automatic startup on macOS login
-* [ ] Safari support
-* [ ] Apple Music support
-* [ ] GUI configuration panel
-* [ ] Native macOS application packaging
 
 ---
 
