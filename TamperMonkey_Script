@@ -1,0 +1,29 @@
+// ==UserScript==
+// @name         YouTube Test
+// @match        https://www.youtube.com/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    console.log("YOUTUBE SCRIPT LOADED");
+
+    const interval = setInterval(() => {
+        const video = document.querySelector("video");
+
+        if (video) {
+            console.log("VIDEO FOUND");
+
+            video.addEventListener("play", () => {
+                console.log("PLAY EVENT");
+                fetch("http://localhost:8765/pause");
+            });
+
+            video.addEventListener("pause", () => {
+                console.log("PAUSE EVENT");
+                fetch("http://localhost:8765/play");
+            });
+
+            clearInterval(interval);
+        }
+    }, 1000);
+})();
